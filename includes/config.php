@@ -9,10 +9,10 @@ function config($key = '')
 {
     $config = [
         'name' => 'Simple PHP Website',
-        'site_url' => '',
-        'pretty_uri' => false,
+        'site_url' => 'http://localhost:8888/simple-php-website',
+        'pretty_uri' => true,
         'nav_menu' => [
-            '' => 'Home',
+            '' => 'Boom',
             'about-us' => 'About Us',
             'products' => 'Products',
             'contact' => 'Contact',
