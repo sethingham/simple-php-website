@@ -34,8 +34,9 @@ function nav_menu($sep = ' | ')
     foreach ($nav_items as $uri => $name) {
         $class = str_replace('page=', '', $_SERVER['QUERY_STRING']) == $uri ? ' active' : '';
         $url = config('site_url') . '/' . (config('pretty_uri') || $uri == '' ? '' : '?page=') . $uri;
-        
-        $nav_menu .= '<a href="' . $url . '" title="' . $name . '" class="item ' . $class . '">' . $name . '</a>' . $sep;
+
+        //$nav_menu .= '<a href="' . $url . '" title="' . $name . '" class="item ' . $class . '">' . $name . '</a>' . $sep;
+        $nav_menu .= '<li class="nav-item"><a class="nav-link ' . $class . '" href="' . $url . '">' . $name . '</a></li>';
     }
 
     echo trim($nav_menu, $sep);
@@ -64,7 +65,7 @@ function page_content()
 
     $path = getcwd() . '/' . config('content_path') . '/' . $page . '.phtml';
 
-    if (! file_exists($path)) {
+    if (!file_exists($path)) {
         $path = getcwd() . '/' . config('content_path') . '/404.phtml';
     }
 
